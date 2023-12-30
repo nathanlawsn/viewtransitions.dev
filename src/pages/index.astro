@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
+import Newsletter from "../components/Newsletter.astro";
 ---
 
 <Layout
@@ -11,11 +12,20 @@ import Card from "../components/Card.astro";
 			<h1
 				class="text-4xl md:text-6xl font-display font-medium text-center max-w-5xl mx-auto [text-wrap:balance]"
 			>
-				A curated collection of <span class="font-bold text-fuchsia-600"
-					>View Transitions</span
-				> on the web
+				A curated collection of <br /><span
+					class="font-bold text-fuchsia-600">View Transitions</span
+				> on the web 💫
 			</h1>
 		</div>
+		<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-10">
+			<Card />
+			<Card />
+			<Card />
+			<Card />
+			<Card />
+			<Card />
+		</div>
+		<Newsletter />
 		<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-10">
 			<Card />
 			<Card />
