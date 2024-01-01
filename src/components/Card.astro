@@ -1,22 +1,25 @@
 ---
 interface Props {
+	key: string;
 	title: string;
 	body: string;
 	href: string;
 }
 
-const { href, title, body } = Astro.props;
+const { key, href, title, body } = Astro.props;
 ---
 
-<div>
-	<div
-		class="aspect-video bg-slate-300 mb-4 group overflow-hidden cursor-pointer"
-	>
+<div class="group cursor-pointer">
+	<div class="aspect-video bg-slate-300 mb-4 group overflow-hidden">
 		<img
 			class="object-cover w-full h-full group-hover:scale-110 duration-300 ease-in-out"
 			src="https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,format=auto,onerror=redirect,quality=80/uploads/asset/file/c99b221e-2781-4471-ba7a-57c2e528665a/Screenshot_2023-10-30_at_16.54.35.png"
 			alt="Example"
 		/>
 	</div>
-	<p class="uppercase font-medium">Death by JavaScript</p>
+	<p
+		class="font-medium font-display text-lg group-hover:text-fuchsia-600 duration-300 ease-in-out"
+	>
+		{title}
+	</p>
 </div>
