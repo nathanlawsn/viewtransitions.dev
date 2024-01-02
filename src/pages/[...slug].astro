@@ -1,0 +1,29 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+	const blogEntries = await getCollection("projects");
+	return blogEntries.map((entry) => ({
+		params: { slug: entry.slug },
+		props: { entry },
+	}));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<Layout
+	title="View Transitions.dev | The best examples of View Transitions in the wild"
+>
+	<main>
+		<div class="py-32 pb-16 md:py-48 md:pb-32">
+			<h1 class="text-3xl font-display font-medium">
+				{entry.data.title}
+			</h1>
+			<Content />
+		</div>
+	</main>
+</Layout>
