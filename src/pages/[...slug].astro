@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Button from "../components/Button.astro";
 
 import { getCollection } from "astro:content";
 
@@ -16,14 +17,24 @@ const { Content } = await entry.render();
 ---
 
 <Layout
-	title="View Transitions.dev | The best examples of View Transitions in the wild"
+	title={` ${entry.data.title} | The best examples of View Transitions in the wild`}
 >
 	<main>
 		<div class="py-32 pb-16 md:py-48 md:pb-32">
-			<h1 class="text-3xl font-display font-medium">
-				{entry.data.title}
-			</h1>
-			<Content />
+			<div class="md:grid md:grid-cols-2 md:gap-20">
+				<div></div>
+				<div class="space-y-10">
+					<h1 class="text-3xl font-display font-medium">
+						{entry.data.title}
+					</h1>
+					<Content />
+					<Button
+						href="#"
+						title="Visit project"
+						label="Visit project"
+					/>
+				</div>
+			</div>
 		</div>
 	</main>
 </Layout>
