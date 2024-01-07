@@ -5,19 +5,19 @@ import Button from "../components/Button.astro";
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
-	const blogEntries = await getCollection("projects");
-	return blogEntries.map((entry) => ({
-		params: { slug: entry.slug },
-		props: { entry },
+	const projects = await getCollection("projects");
+	return projects.map((project) => ({
+		params: { slug: project.slug },
+		props: { project },
 	}));
 }
 
-const { entry } = Astro.props;
-const { Content } = await entry.render();
+const { project } = Astro.props;
+const { Content } = await project.render();
 ---
 
 <Layout
-	title={` ${entry.data.title} | The best examples of View Transitions in the wild`}
+	title={` ${project.data.title} | The best examples of View Transitions in the wild`}
 >
 	<main>
 		<div class="py-32 pb-16 md:py-48 md:pb-32">
@@ -25,13 +25,14 @@ const { Content } = await entry.render();
 				<div></div>
 				<div class="space-y-10">
 					<h1 class="text-3xl font-display font-medium">
-						{entry.data.title}
+						{project.data.title}
 					</h1>
 					<Content />
 					<Button
-						href="#"
+						href={project.data.url}
 						title="Visit project"
 						label="Visit project"
+						target="_blank"
 					/>
 				</div>
 			</div>

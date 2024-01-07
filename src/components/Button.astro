@@ -1,10 +1,11 @@
 ---
-const { href, title, label, emoji } = Astro.props;
+const { href, title, label, emoji, target } = Astro.props;
 ---
 
 <a
 	href={href}
 	title={title}
+	target={target}
 	class="rounded-lg text-md bg-fuchsia-700 text-white font-medium font-display p-3 hover:bg-purple-900 duration-300 transition-colors ease-in-out group inline-flex items-center gap-1"
 	><span>{label}</span>
 	{
